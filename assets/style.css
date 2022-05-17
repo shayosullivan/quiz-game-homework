@@ -36,3 +36,20 @@ h1 {
   cursor: pointer;
   background-color: rgb(250, 12, 250);
 }
+
+.hide {
+  display: none;
+}
+
+.start-btn {
+  font-size: 20px;
+  font-weight: bold;
+  background-color: purple;
+  width: 250px;
+  color: white;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+}
