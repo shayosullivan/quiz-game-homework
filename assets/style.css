@@ -1,0 +1,38 @@
+h1 {
+  font-size: 60px;
+  text-align: center;
+  color: black;
+}
+
+#question {
+  font-family: "monospace";
+  font-size: 30px;
+  color: #01bbff;
+  text-align: center;
+}
+
+.buttons {
+  margin-top: 30px;
+  padding-left: 42%;
+}
+
+#btn0,
+#btn1,
+#btn2,
+#btn3 {
+  background-color: purple;
+  width: 250px;
+  font-size: 20px;
+  color: white;
+  margin: 10px 40px 10px 0px;
+  padding: 10px 10px;
+  display: block;
+}
+
+#btn0:hover,
+#btn1:hover,
+#btn2:hover,
+#btn3:hover {
+  cursor: pointer;
+  background-color: rgb(250, 12, 250);
+}
