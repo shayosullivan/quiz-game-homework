@@ -1,11 +1,27 @@
 const startButton = document.getElementById("start-btn");
+const scoresButton = document.getElementById("high-scores");
 const questionContainerElement = document.getElementById("question-container");
+const timerEl = document.getElementById("countdown");
+var timeInterval;
 
+//start button/user interaction
 startButton.addEventListener("click", startGame);
 function startGame() {
   console.log("Started");
   startButton.classList.add("hide");
+  scoresButton.classList.add("hide");
   questionContainerElement.classList.remove("hide");
+
+  var timeLeft = 20;
+  timerEl.textContent = timeLeft + "seconds remaining";
+  timeInterval = setInterval(function () {
+    timeLeft--;
+    timerEl.textContent = timeLeft + "seconds remaining";
+    if (timeLeft <= 0) {
+      clearInterval(timeInterval);
+      showScores();
+    }
+  }, 1000);
 }
 
 function Quiz(questions) {
@@ -42,6 +58,7 @@ Question.prototype.isCorrectAnswer = function (choice) {
 
 function populate() {
   if (quiz.isEnded()) {
+    clearInterval(timeInterval);
     showScores();
   } else {
     // show question
@@ -83,6 +100,5 @@ var questions = [
 
 // create quiz
 var quiz = new Quiz(questions);
-
 // display quiz
 populate();

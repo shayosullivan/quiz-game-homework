@@ -3,6 +3,11 @@ h1 {
   text-align: center;
   color: black;
 }
+h2 {
+  font-size: 40px;
+  text-align: center;
+  color: black;
+}
 
 #question {
   font-family: "monospace";
@@ -13,7 +18,7 @@ h1 {
 
 .buttons {
   margin-top: 30px;
-  padding-left: 42%;
+  padding-left: 41%;
 }
 
 #btn0,
@@ -52,4 +57,11 @@ h1 {
 .controls {
   display: flex;
   justify-content: center;
+}
+.high-scores {
+  font-size: 20px;
+  font-weight: bold;
+  background-color: purple;
+  width: 250px;
+  color: white;
 }
