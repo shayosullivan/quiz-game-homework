@@ -3,6 +3,12 @@ const scoresButton = document.getElementById("high-scores");
 const questionContainerElement = document.getElementById("question-container");
 const timerEl = document.getElementById("countdown");
 var timeInterval;
+var highScoreList = [];
+if (localStorage.getItem("highScore") === null) {
+  highScoreList = [];
+} else {
+  highScoreList = JSON.parse(localStorage.getItem("highScore"));
+}
 
 //start button/user interaction
 startButton.addEventListener("click", startGame);
@@ -82,12 +88,30 @@ function guess(id, guess) {
     populate();
   };
 }
-
+function saveScore() {
+  //console.log("click");
+  var intials = document.getElementById("inputInitals");
+  console.log(intials.value);
+  highScoreList.push({
+    intials: intials.value,
+    score: quiz.score,
+  });
+  localStorage.setItem("highScore", JSON.stringify(highScoreList));
+  var list = localStorage.getItem("highScore");
+  console.log(list);
+}
 function showScores() {
   var gameOverHTML = "<h1>Result</h1>";
   gameOverHTML += "<h2 id='score'> Your scores: " + quiz.score + "</h2>";
+  var setUp =
+    "<h2>Enter High Score</h2> <p>Enter your Intials</p><input id = inputInitals />";
+  var saveButton = "<button id = saveBtn>Save Scores</button>";
   var element = document.getElementById("quiz");
-  element.innerHTML = gameOverHTML;
+  element.innerHTML = gameOverHTML + setUp + saveButton;
+  var getSaveButton = document.getElementById("saveBtn");
+  getSaveButton.addEventListener("click", saveScore);
+  //console.log(getSaveButton);
+  //push to local storage
 }
 
 // create questions here
